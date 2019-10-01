@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion39_001"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_6.xsd">	
+
+    <!-- INCLUDE-FILE loop-->
+    <INCLUDE-FILE version="1.1" filename="/org/xmlblackbox/test/functional/examples/v39/FirstIncludedFile.xml"></INCLUDE-FILE>
+
+    <INCLUDE-FILE version="1.1" filename="/org/xmlblackbox/test/functional/examples/v39/ThirdIncludedFile.xml"></INCLUDE-FILE>
+
+</TEST>
+

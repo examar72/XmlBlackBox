@@ -1,0 +1,1 @@
+googlecode_upload.py -s "XmlBlackBox implementation" -p xmlblackbox -u examar.xbb -w %2 xmlblackbox\target\xmlblackbox-%1.jar

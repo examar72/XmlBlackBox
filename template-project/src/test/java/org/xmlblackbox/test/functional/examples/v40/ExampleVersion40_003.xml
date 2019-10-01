@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name=""
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_9.xsd">
+
+
+    <!-- Example to do a selenium web driver navigation -->
+    <SELENIUM-WEB-DRIVER-CLIENT version="1.1" name="Example37 with SELENIUM WEB DRIVER CLASS" browser-type="FIREFOX">
+            <NAVIGATION-FILE do-it-if-included="false" class="org.xmlblackbox.test.functional.examples.v40.selenium.WebApplicationTestWebDriverThrowException">
+                <PARAMETERS>
+                        <PARAMETER name="EXAMPLE_WEB_URL" value="${EXAMPLE_WEB_URL@inputProperties}"/>
+                </PARAMETERS>
+            </NAVIGATION-FILE>
+    </SELENIUM-WEB-DRIVER-CLIENT>
+ 
+    <SELENIUM-WEB-DRIVER-CLIENT version="1.1" name="Example37 with SELENIUM WEB DRIVER CLASS" browser-type="PHANTOMJS">
+            <NAVIGATION-FILE do-it-if-included="false" class="org.xmlblackbox.test.functional.examples.v40.selenium.WebApplicationTestWebDriverThrowException">
+                <PARAMETERS>
+                        <PARAMETER name="EXAMPLE_WEB_URL" value="${EXAMPLE_WEB_URL@inputProperties}"/>
+                </PARAMETERS>
+            </NAVIGATION-FILE>
+    </SELENIUM-WEB-DRIVER-CLIENT>
+
+</TEST>
+

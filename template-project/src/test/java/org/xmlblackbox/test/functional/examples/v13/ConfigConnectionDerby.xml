@@ -1,0 +1,14 @@
+<TEST  version="1.1" name="ConfigConnection" 
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+	<!-- Connection initialize -->
+	
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v13.plugin.RunDerbyDatabaseXBB" />
+    <DB-CONNECTIONS version="1.1">
+        <CONNECTION name="DERBY" driver="org.apache.derby.jdbc.ClientDriver"
+            db-url="jdbc:derby://localhost:1527/xmlblackbox;create=true"
+            username="xmlblackbox" password="xmlblackbox"/>
+    </DB-CONNECTIONS>
+</TEST>
+

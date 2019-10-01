@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion19_002"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+
+	
+    <!-- Example xml file with no fileoutput. The test expectes an error-->
+    <XML-CONTENT name="xmlContent1" version="1.1"
+	    fileinput="src/test/resources/templateXml/WebServiceTemplate/xmlbeansExample.xml"
+	    namespace="declare namespace xsd='http://webservice.test.xmlblackbox.org/';">
+		<XML-INSERT-ROW name="arg0"
+		    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:address"
+		    value="Via aaaaaaaaaaaa"/>
+		<XML-INSERT-ROW name="arg1"
+		    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:name"
+		    value="Giulio"/>
+		<XML-INSERT-ROW name="arg2"
+		    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:surname"
+		    value="Bianchi"/>
+		<XML-INSERT-ROW name="arg0"
+		    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:address"
+		    value="Via bbbbbbbbbbbb"/>
+		<XML-INSERT-ROW name="arg1"
+		    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:name"
+		    value="Gino"/>
+		<XML-INSERT-ROW name="arg2"
+		    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:surname"
+		    value="Blu"/>
+    </XML-CONTENT>
+	    
+</TEST>
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion22_001"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">
+
+
+    <!-- Execute a Plugin to create a Person object and put it in session. Person is read in ReadNewInformationObject plugin-->
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v22.plugin.CreatePersonObject" >
+            <PARAMETERS>
+                <PARAMETER name="nameReturnObject" value="john" />
+                <PARAMETER name="name" value="John" />
+                <PARAMETER name="surname" value="Malone" />
+                <PARAMETER name="address" value="105st Evenue" />
+                <PARAMETER name="city" value="New York" />
+            </PARAMETERS>
+    </RUN-PLUGIN>
+    
+    <SET-VARIABLE version="1.1" name="setVariableFromValue">
+        <SET name="johnAddress" bean="john@runPlugin:address" type="OBJ_TYPE"/>
+    </SET-VARIABLE>
+
+    <!-- Execute a Plugin to create a Person object and put it in session. Person is read in ReadNewInformationObject plugin-->
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v22.plugin.CreatePersonObject" >
+            <PARAMETERS>
+                <PARAMETER name="nameReturnObject" value="martin" />
+                <PARAMETER name="name" value="Martin" />
+                <PARAMETER name="surname" value="McDowell" />
+                <PARAMETER name="address" value="95st Street" />
+                <PARAMETER name="city" value="Chicago" />
+            </PARAMETERS>
+    </RUN-PLUGIN>
+    
+    <SET-VARIABLE version="1.1" name="setVariableFromObj">
+        <SET name="martinSurname" bean="martin@runPlugin:surname" type="OBJ_TYPE"/>
+        <SET name="martinAddress" bean="martin@runPlugin:address" type="OBJ_TYPE"/>
+    </SET-VARIABLE>
+
+    <!-- Execute a Plugin to check all variable defined-->
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v22.plugin.CheckVariables" />
+
+</TEST>
+

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion24_004"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">
+
+	<!-- This test show how to use a data contains in a complex object directly from XML. 
+		Look at ${john@runPlugin:address.address} in DB_CHECK tag -->
+
+    <!-- Connection initialized using INCLUDE-FILE tag. This tag is useful to use in different test case part 
+    in commmon among multiple tests-->
+    <INCLUDE-FILE version="1.1" filename="/org/xmlblackbox/test/functional/examples/v13/ConfigConnectionDerby.xml"></INCLUDE-FILE>
+
+    <!-- Execute a Plugin to create a Person object and put it in session. Person is read in ReadNewInformationObject plugin-->
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v22.plugin.CreatePersonObject" >
+            <PARAMETERS>
+                <PARAMETER name="nameReturnObject" value="john" />
+                <PARAMETER name="name" value="John" />
+                <PARAMETER name="surname" value="Malone" />
+                <PARAMETER name="address" value="105st Evenue" />
+                <PARAMETER name="city" value="New York" />
+            </PARAMETERS>
+    </RUN-PLUGIN>
+
+    <EXECUTE-QUERY version="1.1" name="delete record">
+        <QUERY connection="DERBY" name="delete record" query="DELETE FROM XMLBLACKBOX.HOUSE WHERE ID='1'" type="DELETE"/>
+        <QUERY connection="DERBY" name="delete record" query="DELETE FROM XMLBLACKBOX.HOUSE WHERE ID='2'" type="DELETE"/>
+        <QUERY connection="DERBY" name="delete record" query="DELETE FROM XMLBLACKBOX.HOUSE WHERE ID='3'" type="DELETE"/>
+    </EXECUTE-QUERY>
+
+    <EXECUTE-QUERY version="1.1" name="insert records">
+        <QUERY connection="DERBY" name="insertRecord" query="INSERT INTO XMLBLACKBOX.HOUSE (ID,DESCRIPTION) VALUES('1','105st Evenue')" type="INSERT"/>
+        <QUERY connection="DERBY" name="insertRecord" query="INSERT INTO XMLBLACKBOX.HOUSE (ID,DESCRIPTION) VALUES('2','105st Evenue')" type="INSERT"/>
+        <QUERY connection="DERBY" name="insertRecord" query="INSERT INTO XMLBLACKBOX.HOUSE (ID,DESCRIPTION) VALUES('3','Malone')" type="INSERT"/>
+    </EXECUTE-QUERY>
+    
+    <SET-VARIABLE version="1.1" name="setVariableFromValue">
+        <SET name="johnAddress" bean="john@runPlugin:address" type="OBJ_TYPE"/>
+    </SET-VARIABLE>
+
+    <!-- Checkdb example verify VALUE in HOUSE table chosing the connection 
+    DERBY using where-condition and is-present attributes-->
+    <CHECK-DB version="1.1" connection="DERBY" name="checkDB">
+        <dataset>
+            <table name="XMLBLACKBOX.HOUSE" where-condition="ID='1'">
+                <column>ID</column><column>DESCRIPTION</column>
+                <row><value>1</value><value>${john@runPlugin:address.address}</value></row>
+            </table>
+        </dataset>
+        <dataset>
+            <table name="XMLBLACKBOX.HOUSE" where-condition="ID='2'">
+                <column>ID</column><column>DESCRIPTION</column>
+                <row><value>2</value><value>${johnAddress@setVariable:address}</value></row>
+            </table>
+        </dataset>
+        <dataset>
+            <table name="XMLBLACKBOX.HOUSE" where-condition="ID='3'">
+                <column>ID</column><column>DESCRIPTION</column>
+                <row><value>3</value><value>${john@runPlugin:surname}</value></row>
+            </table>
+        </dataset>
+        <dataset>
+            <table name="XMLBLACKBOX.HOUSE" where-condition="ID='3'">
+                <column>ID</column><column>DESCRIPTION</column>
+                <row><value>3</value><value>Malone</value></row>
+            </table>
+        </dataset>
+    </CHECK-DB>
+
+    <!-- Checkdb example verify VALUE in HOUSE table chosing the connection 
+    DERBY showing how to use order by in a where-condition -->
+    <CHECK-DB version="1.1" connection="DERBY" name="checkDB2">
+        <dataset>
+            <table name="XMLBLACKBOX.HOUSE" where-condition="1=1 order by ID asc">
+                <column>ID</column><column>DESCRIPTION</column>
+                <row><value>1</value><value>${john@runPlugin:address.address}</value></row>
+                <row><value>2</value><value>${johnAddress@setVariable:address}</value></row>
+                <row><value>3</value><value>${john@runPlugin:surname}</value></row>
+            </table>
+        </dataset>
+    </CHECK-DB>
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v13.plugin.StopDerbyDatabaseXBB" />
+
+</TEST>
+

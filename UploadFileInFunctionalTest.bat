@@ -1,0 +1,1 @@
+googlecode_upload.py -s "Template project for creating test cases using XmlBlackBox (includes xmlblackbox last version jar)" -p xmlblackbox -u examar.xbb -w %2 functional-test-%1.zip

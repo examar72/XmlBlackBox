@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion15_001"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+
+    <SET-VARIABLE version="1.1" name="setVariableWithRepository">
+        <SET name="varInRunPluginRepo" value="valueVarInRunPluginRepo"
+                    type="VALUE_TYPE" repository="runPlugin"/>
+    </SET-VARIABLE>
+
+    <RUN-PLUGIN version="1.1"
+            class="org.xmlblackbox.test.functional.examples.v15.plugin.PluginExampleVersion15" >
+    </RUN-PLUGIN>
+
+    
+</TEST>
+

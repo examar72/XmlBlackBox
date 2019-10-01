@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion19_003"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+
+    <INCLUDE-FILE version="1.1" filename="/IncorrectPath.xml"></INCLUDE-FILE>
+	
+</TEST>
+

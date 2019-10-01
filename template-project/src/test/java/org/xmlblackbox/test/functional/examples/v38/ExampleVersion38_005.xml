@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion38_005"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_6.xsd">	
+
+    <!-- Stop Derby server eventually started-->
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v13.plugin.StopDerbyDatabaseXBB" />
+
+    <!-- Connection initialized using INCLUDE-FILE tag. This tag is useful to use in different test case part 
+    in commmon among multiple tests-->
+    <INCLUDE-FILE version="1.1" filename="/org/xmlblackbox/test/functional/examples/v13/ConfigConnectionDerby.xml"></INCLUDE-FILE>
+
+    <!-- execute wrong query to check the exception has andle correctly -->
+    <EXECUTE-QUERY version="1.1" name="wrong query">
+        <QUERY connection="DERBY" name="delete record" query="DELETE FROM XMLBLACKBOX.HOUSE_WRONG WHERE ID='1'" type="DELETE"/>
+    </EXECUTE-QUERY>
+	
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v13.plugin.StopDerbyDatabaseXBB" />
+
+</TEST>
+

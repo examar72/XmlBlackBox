@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion21_001"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">
+
+    <SELENIUM version="1.1" name="Example003 with SELENIUM CLASS" selenium-client="SELENIUM-CLIENT-EXAMPLE-003@webNavigation">
+            <NAVIGATION-FILE class="org.xmlblackbox.test.functional.examples.v21.selenium.SeleniumNavigation"/>
+    </SELENIUM>
+
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.infrastructure.plugin.GenerateDate" >
+            <PARAMETERS>
+                <PARAMETER name="pattern" value="yyyy-MM-dd" />
+                <PARAMETER name="addOrSubDays" value="0"/>
+            </PARAMETERS>
+    </RUN-PLUGIN>
+ 
+    
+</TEST>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" name="ExampleNavigationInDifferentDomanis" 
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+
+    <SELENIUM version="1.1" name="ExampleNavigationInDifferentDomanis SELENIUM navigation First domain">
+            <NAVIGATION-FILE class="org.xmlblackbox.test.functional.examples.v13.selenium.OpenDomain">
+                <PARAMETERS>
+                        <PARAMETER name="WEB_URL" value="http://localhost:8080/WebApplicationTest"/>
+                </PARAMETERS>
+            </NAVIGATION-FILE>
+    </SELENIUM>
+
+    <SELENIUM version="1.1" name="ExampleNavigationInDifferentDomanis SELENIUM navigation Second domain">
+            <NAVIGATION-FILE class="org.xmlblackbox.test.functional.examples.v13.selenium.OpenDomain">
+                <PARAMETERS>
+                        <PARAMETER name="WEB_URL" value="http://www.yahoo.com/"/>
+                </PARAMETERS>
+            </NAVIGATION-FILE>
+    </SELENIUM>
+
+    <SELENIUM version="1.1" name="ExampleNavigationInDifferentDomanis SELENIUM navigation Second domain">
+            <NAVIGATION-FILE class="org.xmlblackbox.test.functional.examples.v13.selenium.RepubblicaKataweb">
+                <PARAMETERS>
+    		    	<PARAMETER name="WEB_URL" value="http://www.repubblica.it/"/>
+                </PARAMETERS>
+            </NAVIGATION-FILE>
+    </SELENIUM>
+
+</TEST>
+

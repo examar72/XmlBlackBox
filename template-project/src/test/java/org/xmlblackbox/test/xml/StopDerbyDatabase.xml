@@ -1,0 +1,9 @@
+<TEST  version="1.1" name="StopDerbyDatabase" 
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+	<!-- Connection initialize -->
+	
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v13.plugin.StopDerbyDatabaseXBB" />
+</TEST>
+

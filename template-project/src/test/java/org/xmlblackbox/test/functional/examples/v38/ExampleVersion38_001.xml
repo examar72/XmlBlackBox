@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ExampleVersion38_001"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_6.xsd">	
+
+    <!-- Execute a Plugin to create a Person object and put it in session. Person is read in ReadNewInformationObject plugin-->
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v13.plugin.CreateNewInformationObject" >
+            <PARAMETERS>
+                <PARAMETER name="nameReturnObject" value="person" />
+            </PARAMETERS>
+    </RUN-PLUGIN>
+
+    <!-- Example for creating an Xml file with modified value -->
+    <XML-CONTENT name="xmlContent1" version="1.1" 
+	    fileinput="src/test/resources/templateXml/WebServiceTemplate/xmlbeansExample.xml"
+	    fileoutput="target/ExampleVersion38_001_1_in.xml"
+	    namespace="declare namespace xsd='http://webservice.test.xmlblackbox.org/';">
+		<XML-INSERT-ROW name="arg0"
+		    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:address"
+		    value="Via aaaaaaaaaaaa"/>
+		<XML-INSERT-ROW name="arg1"
+		    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:name"
+		    value="Giulio"/>
+		<XML-INSERT-ROW name="arg2"
+		    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:surname"
+		    value="Bianchi"/>
+		<XML-INSERT-ROW name="arg0"
+		    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:address"
+		    value="Via bbbbbbbbbbbb"/>
+		<XML-INSERT-ROW name="arg1"
+		    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:name"
+		    value="Gino"/>
+		<XML-INSERT-ROW name="arg2"
+		    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:surname"
+		    value="Blu"/>
+    </XML-CONTENT>
+
+    <!-- Example for creating a variable getting data from xml file -->
+    <SET-VARIABLE version="1.1" name="setVariableFromXml">
+        <SET name="idSetVariable" filename="target/ExampleVersion38_001_1_in.xml"
+            namespace="declare namespace xsd='http://webservice.test.xmlblackbox.org/';"
+            xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:address"
+            type="XML_TYPE"/>
+    </SET-VARIABLE>
+
+    <!-- Example to verify values in xml file -->
+    <XML-CONTENT version="1.1" name="XML-CONTENT Check"
+            fileinput="target/ExampleVersion38_001_1_in.xml"
+            namespace="declare namespace xsd='http://webservice.test.xmlblackbox.org/';">
+	        <XML-CHECK-ROW name="arg0"
+                    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:address"
+                    value="${idSetVariable@setVariable}"/>
+	        <XML-CHECK-ROW name="arg1"
+                    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:name"
+                    value="Giulio"/>
+	        <XML-CHECK-ROW name="arg2"
+                    xpath="$this//xsd:getPerson/xsd:arg0[1]/xsd:surname"
+                    value="Bianchi"/>
+	        <XML-CHECK-ROW name="arg0"
+                    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:address"
+                    value="Via bbbbbbbbbbbb"/>
+	        <XML-CHECK-ROW name="arg1"
+                    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:name"
+                    value="Gino"/>
+	        <XML-CHECK-ROW name="arg2"
+                    xpath="$this//xsd:getPerson/xsd:arg0[2]/xsd:surname"
+                    value="Blu"/>
+    </XML-CONTENT>
+	
+    <!-- Example to make a web service call using xml prepared befor as input-->
+    <WEB-SERVICE-CLIENT version="1.2" name="webservice"
+    	input-file="target/ExampleVersion38_001_1_in.xml"
+    	output-file="target/ExampleVersion38_001_1_out.xml"
+    	url="${EXAMPLE_WEB_SERVICE_URL@fileProperties}"
+    	stub="org.xmlblackbox.test.webservice.client.NewWebServiceServiceStub"
+    	operation="getPerson"/>
+
+    <!-- Example to verify values in xml file -->
+    <XML-CONTENT version="1.1" name="XML-CONTENT Check"
+            fileinput="target/ExampleVersion38_001_1_out.xml"
+            namespace="declare namespace xsd='http://webservice.test.xmlblackbox.org/';">
+	        <XML-CHECK-ROW name="arg0"
+                    xpath="$this//xsd:getPersonResponse/return[2]/address"
+                    value="Via milanooooooo"/>
+	        <XML-CHECK-ROW name="arg1"
+                    xpath="$this//xsd:getPersonResponse/return[2]/name"
+                    value="Paolo"/>
+	        <XML-CHECK-ROW name="arg2"
+                    xpath="$this//xsd:getPersonResponse/return[2]/surname"
+                    value="Bianchi"/>
+    </XML-CONTENT>
+
+    <!-- Example to validate an xml file against xsd file-->
+    <VALIDATE-XML version="1.1" name="Validate"
+        xml="target/ExampleVersion38_001_1_out.xml"
+        xsd="src/test/resources/wsdl/NewWebService.xsd" />
+    
+</TEST>
+

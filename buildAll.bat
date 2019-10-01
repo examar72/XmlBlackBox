@@ -1,0 +1,1 @@
+mvn -Dtest=SuiteAllTest -Dft.version=1.24 clean install

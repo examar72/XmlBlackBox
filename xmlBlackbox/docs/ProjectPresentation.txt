@@ -1,0 +1,125 @@
+<g:plusone size="medium"></g:plusone>
+
+                     <h1>Simple - Easy - Powerful</h1>
+
+<b>XmlBlackBox is an Open Source Java framework to describe a test case in Xml. All generic steps are described by the framework (db content check, xml file content check, Selenium navigation, ...), other special needs can be solved with plugins. Plugins are simple Java classes that extend an interface. In this way every step of each test case is described in Xml and its flow is easy to follow.
+</b>
+<h5>
+{{{
+...
+<!-- Example to do a selenium navigation -->
+<SELENIUM version="1.1" name="Example999 with SELENIUM">
+     <NAVIGATION-FILE class="org.xmlblackbox.test.selenium.WebApplicationTest">
+          <PARAMETERS>
+                <PARAMETER name="EXAMPLE_WEB_URL" value="${EXAMPLE_WEB_URL@fileProperties}"/>
+          </PARAMETERS>
+     </NAVIGATION-FILE>
+</SELENIUM>
+...
+<RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.infrastructure.plugin.GenerateDate" >
+		<PARAMETERS>
+			<PARAMETER name="pattern" value="yyyy-MM-dd" />
+			<PARAMETER name="addOrSubDays" value="-1"/>
+		</PARAMETERS>
+</RUN-PLUGIN>
+
+}}}
+</h5>
+
+*XmlBlackBox* is a *framework* for automation tests. Can be used in a simple environment (eg a web application) or in a more heterogeneous one (Web app, Web Services, Batch application).
+In each of them you can take advantage of the *functionality* gave you by the framework.
+
+<h3>Look at this [http://www.slideshare.net/a.crea/xmlblackbox-english-presentation presentation] </h3>(or the [http://www.slideshare.net/a.crea/xmlblackbox-presentation Italian version])
+
+XmlBlackBox works with the last Selenium (http://seleniumhq.org/) version, running with Firefox 7!!!!
+
+Each test is implemented mainly in *Xml language*. In this way each test is *self-describing* and easy to understand.
+
+Look at this [http://code.google.com/p/xmlblackbox/wiki/Example example]
+
+*XmlBlackBox allows to cut time for creating tests*, compared to a development in pure Java code. Furthermore the time for creating a single test decrease increasing the number of tests already implemented, because XmlBlackBox allows to create reusable *xml flows*, that can be included in many other test cases.
+
+XmlBlackBox has the ability to be *modular* and *expandable* adding *plugin* classes to reach any of test purposes. 
+
+The *failures check* is easy, given the self-describing capacity of tests.
+
+[http://code.google.com/p/xmlblackbox/wiki/GettingStarted Getting Started] -- 
+[http://code.google.com/p/xmlblackbox/wiki/MyFirstTestCase My first test case] -- 
+[http://code.google.com/p/xmlblackbox/wiki/Documentation Documentation] -- 
+[http://code.google.com/p/xmlblackbox/wiki/Tags Tags]
+
+<h2>For any information send an email to examar.xbb@gmail.com<h2>
+<g:plusone size="medium"></g:plusone>
+
+<h5>
+{{{
+...
+<DB-CONNECTIONS version="1.1">
+	<CONNECTION name="DERBY" driver="org.apache.derby.jdbc.ClientDriver"
+		db-url="jdbc:derby://localhost:1527/xmlblackbox;create=true"
+		username="xmlblackbox" password="xmlblackbox"/>
+</DB-CONNECTIONS>
+
+<CHECK-DB version="1.1" connection="DERBY" name="checkDB">
+  <dataset>
+	<table name="XMLBLACKBOX.HOUSE" where-condition="ID='1'">
+      <column>ID</column><column>DESCRIPTION</column><column>START_DATE</column>
+	  <row><value>1</value><value>description1</value><value>${today@setVariable}</value></row>
+	</table>
+  </dataset>
+  <dataset>
+	<table name="XMLBLACKBOX.HOUSE" where-condition="ID='2' ORDER BY START_DATE">
+      <column>ID</column><column>DESCRIPTION</column><column>START_DATE</column>
+	  <row><value>2</value><value>description2</value><value>2009-08-23</value></row>
+	  <row><value>2</value><value>description3</value><value>2009-08-24</value></row>
+	</table>
+  </dataset>
+</CHECK-DB>
+...
+}}}
+</h5>
+
+
+
+
+
+
+
+How many times did you think about testing your application from the beginning to the end, without tools available for heterogeneous environment.
+
+
+Each test is implemented mainly in Xml language. In this way each test is self-describing and easy to understand.
+
+1 - XmlBlackBox è un framework professionale per lo sviluppo di test di integrazione.
+1 - XmlBlackBox? is a professional framework for developing integration test. Or you can use it in simple environment haaving many advantages by the framework.
+1b - XmlBlackBox? is a professional framework for developing web application or integration tests. You can use it in simple environment as a standard web app or you can use in a more eterogeneous environment. In both of them you can ++++sfruttare++++ the advantages gave you by the framework.
+
+2 - XmlBlackBox? has the ability to be modular and expandable adding plugin classes to reach any of your test purposes.
+
+3 - XmlBlackBox? allows you to create reusable xml flows, that can be included in many test cases.
+
+4a - Opzione 1 - Sviluppare un test in Java "costa" il 10%/20% rispetto all'implementazione della funzionalità dell'applicazione da testare. Con XmlBlackBox i tempi si riducono ulteriormente, con ovvi vantaggi dal punto di vista dei costi e dei tempi di rilascio. Questo anche in ambienti particolarmente complessi (web, web services, architetture legacy)
+
+4b - Opzione 2 - L'uso di XmlBlackBox permette di ridurre i tempi di creazione dei test rispetto a corrispondenti in Java. I tempi si riducono ulteriormente all'aumentare dei test sviluppati. Attraverso la possibilità di riutilizzare con semplicità parti di ciò che è stato già sviluppato. Inoltre i tempi di verifica dei fallimenti è ridotta dalla capacita autodescrittiva del singolo test
+4b - Opzione 2 - Using XmlBlackBox you can _____________reduce________ time for creating tests "instead of" doing it in pure Java language. Farder ..... you reduce time as many tests as you have done. This using the possibility to include easily, parts already done for other tests. 
+Verify faults become easily cause by the self-describing capacity of a single test.
+
+
+
+How many times did you think about testing your application from the beginning to the end, without tools available for heterogeneous environment.
+
+Each test is implemented mainly in Xml language. In this way each test is self-describing and easy to understand.
+
+XmlBlackBox? is a professional framework for developing test for web application or integration environment. 
+Can be used in a simple environment (eg a web application) or in a more heterogeneous.
+In each of them you can take advantage of the functionality gave you by the framework.
+
+Using XmlBlackBox you can cut time for creating tests, compared to a development in pure Java code. Furthermore the time for creating a single test decrease increasing of tests already implemented, because XmlBlackBox? allows you to create reusable xml flows, that can be included in many test cases.
+
+XmlBlackBox? has the ability to be modular and expandable adding plugin classes to reach any of test purposes.
+
+The verification of failure is easy, given the self-describing capacity of tests.
+
+
+
+

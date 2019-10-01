@@ -1,0 +1,1 @@
+mvn clean install -Duser.name=examar.xbb -Prelease-sign-artifacts -Darguments=-Dgpg.passphrase=

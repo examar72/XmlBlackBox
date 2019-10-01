@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name=""
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_9.xsd">
+
+
+ 	<INCLUDE-FILE version="1.1" filename="/org/xmlblackbox/test/functional/examples/v13/ConfigConnectionDerby.xml"></INCLUDE-FILE>
+ 
+    <EXECUTE-QUERY version="1.1" name="delete record">
+        <QUERY connection="DERBY" name="delete record2" query="DELETE FROM XMLBLACKBOX.HOUSE WHERE ID='2'" type="DELETE"/>
+    </EXECUTE-QUERY>
+
+    <EXECUTE-QUERY version="1.1" name="insert records">
+        <QUERY connection="DERBY" name="insertRecord2" query="INSERT INTO XMLBLACKBOX.HOUSE (ID,DESCRIPTION,START_DATE) VALUES('2','description2',Date('2009-08-23'))" type="INSERT"/>
+    </EXECUTE-QUERY>
+
+    <!-- Checkdb example verify VALUE in HOUSE table chosing the connection 
+    DERBY using where-condition and is-present attributes-->
+    <CHECK-DB do-it-if-included="false" version="1.1" connection="DERBY" name="checkDB">
+        <dataset>
+            <table name="XMLBLACKBOX.HOUSE" where-condition="ID='2' ORDER BY START_DATE">
+                <column>ID</column><column>DESCRIPTION</column><column>START_DATE</column>
+                <row><value>2</value><value>description2</value><value>2009-08-22</value></row>
+            </table>
+        </dataset>
+    </CHECK-DB>
+ 
+
+</TEST>
+

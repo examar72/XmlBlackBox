@@ -1,0 +1,9 @@
+<TEST  version="1.1" name="ConfigConnection" 
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_6.xsd">	
+    <SET-VARIABLE version="1.1" name="setVariableFromValue">
+        <SET name="yesterday" value="nothing" type="VALUE_TYPE"/>
+    </SET-VARIABLE>
+</TEST>
+

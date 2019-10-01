@@ -1,0 +1,8 @@
+<TEST  version="1.1" name="ConfigConnection" 
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_6.xsd">	
+	<!-- INCLUDE-FILE loop-->
+    <INCLUDE-FILE version="1.1" filename="/org/xmlblackbox/test/functional/examples/v39/SecondIncludedFile.xml"></INCLUDE-FILE>
+</TEST>
+

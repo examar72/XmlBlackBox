@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.googlecode.xmlblackbox</groupId>
+    <artifactId>xmlblackbox-project</artifactId>
+    <packaging>pom</packaging>
+    <version>3.1.12-SNAPSHOT</version>
+    <name>xmlblackbox-project</name>
+    <scm>
+	    <connection>scm:hg:https://xmlblackbox.googlecode.com/hg/</connection>
+	    <developerConnection>scm:hg:https://xmlblackbox.googlecode.com/hg/</developerConnection>
+	    <url>https://xmlblackbox.googlecode.com/hg/</url>
+    </scm> 
+    <modules>
+        <module>xmlBlackbox</module>
+    </modules>
+    <build>
+		<plugins>
+            <plugin>
+		        <artifactId>maven-antrun-plugin</artifactId>
+		        <executions>
+		          <execution>
+		            <phase>generate-sources</phase>
+		            <configuration>
+		              <!--
+				<tasks>		              	
+							<ant inheritall="false" antfile="${basedir}/build.xml" target="jarDistribution" />									
+		              </tasks>-->
+		            </configuration>
+		            <goals>
+		              <goal>run</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+         	    </plugin>
+    		</plugins>
+        </build>
+    	<profiles>
+            <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <configuration>
+                                <useAgent>true</useAgent>
+                        </configuration>
+                        <executions>
+                            <execution>
+                            <id>sign-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                    <goal>sign</goal>
+                            </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            </profile>
+        </profiles>
+
+	<distributionManagement>
+		<snapshotRepository>
+		  <id>sonatype-nexus-snapshots</id>
+		  <name>Nexus Snapshot Repository</name>
+		  <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+		  <id>sonatype-nexus-staging</id>
+		  <name>Nexus Staging Repository</name>
+		  <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+	</distributionManagement>
+
+</project>

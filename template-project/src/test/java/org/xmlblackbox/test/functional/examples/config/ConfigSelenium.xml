@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="ConfigSelenium"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+
+    <!-- Connection initialize -->
+    <SELENIUM-SERVER version="1.1"
+        name="SELENIUM-SERVER-EXAMPLE-003" port="4546" operation="start"/>
+
+    <SELENIUM-CLIENT version="1.1"
+        name="SELENIUM-CLIENT-EXAMPLE-003" server-port="4546" server-ip="localhost"
+        domain="http://localhost:8080/" browser-type="${SELENIUM_BROWSER_TYPE@fileProperties}" />
+
+    <RUN-PLUGIN version="1.1" class="org.xmlblackbox.test.functional.examples.v13.plugin.ModifyConfigSeleniumServer" />
+
+</TEST>
+

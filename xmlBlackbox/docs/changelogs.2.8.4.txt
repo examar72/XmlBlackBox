@@ -1,0 +1,48 @@
+XmlBlackBox version 2.1
+
+- Improved exception handle (SetVariable Exception, Selenium Exception, 
+ClassNotFound, Plugin Exception)
+
+XmlBlackBox version 2.2
+
+- New XSD revision (1.4). Added OBJ_TYPE in SET-VARIABLE tag
+- XBB can manage generic object stored in session. 
+In this way it can be possible to create complex object 
+in session to bring together many information related 
+to the same operation. SET-VARIABLE can handle objects 
+or part of them. For an example see ExampleVersion022_001
+
+XmlBlackBox version 2.3
+- Can be stored in session also complex objects 
+
+
+XmlBlackBox version 2.4
+
+- The session can be set valid also beetwen different test.
+- Using beanutils is possible to extract a data from an object with a 
+sort of query directly from the xml
+
+XmlBlackBox version 2.6.4
+- Added logs about the file that includes current xmlblackbox tag
+
+XmlBlackBox version 2.7.0
+- Compatibility with new Selenium version. Added tag to handle 
+Selenium Web Driver implementation (SELENIUM-WEB-DRIVER-CLIENT)
+
+XmlBlackBox version 2.8.0
+New WEB-SERVICE-CLIENT tag version. No inner tags but attributes and obviously
+new xsd.
+
+XmlBlackBox version 2.8.1
+New handle exception in CheckDatabase and CheckInsertXmlContent 
+
+XmlBlackBox version 2.8.2
+New log and handle exception in RunQuery and CheckInsertiXmlContent
+
+XmlBlackBox version 2.8.3
+Throws IncludeLoopException in case of endless loop using include tag. 
+If the Includes depth is grater than 100 XBB throws the exception. 
+
+XmlBlackBox version 2.8.4
+Changed handle exception in case of JUnit Assertion error in CheckDatabase or RunQuery
+

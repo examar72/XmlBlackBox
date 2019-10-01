@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TEST version="1.1" 
+	name="Example003WebApp"
+	xmlns="http://www.xmlblackbox.org/xsd/" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.xmlblackbox.org/xsd/ ../../../../../../../resources/xsd/xmlblackbox_1_4.xsd">	
+
+    <!-- Connection initialize using INCLUDE-FILE tag. This tag is useful to use in different test case part 
+    in commmon to more than one test-->
+    <INCLUDE-FILE version="1.1" filename="/org/xmlblackbox/test/functional/examples/config/ConfigSelenium.xml" />
+    <!-- Example to do a selenium navigation -->
+    <SELENIUM version="1.1" name="Example003 with SELENIUM CLASS" selenium-client="SELENIUM-CLIENT-EXAMPLE-003@webNavigation">
+            <NAVIGATION-FILE class="org.xmlblackbox.test.functional.examples.v13.selenium.WebApplicationTest2">
+                <PARAMETERS>
+                        <PARAMETER name="EXAMPLE_WEB_URL" value="${EXAMPLE_WEB_URL@fileProperties}"/>
+                </PARAMETERS>
+            </NAVIGATION-FILE>
+            <NAVIGATION-FILE class="org.xmlblackbox.test.functional.examples.v13.selenium.WebApplicationNavigation">
+                <PARAMETERS>
+                        <PARAMETER name="EXAMPLE_WEB_URL" value="${EXAMPLE_WEB_URL@fileProperties}"/>
+                </PARAMETERS>
+            </NAVIGATION-FILE>
+            <NAVIGATION-FILE class="org.xmlblackbox.test.functional.examples.v13.selenium.WebApplicationTestNoParameters"/>
+    </SELENIUM>
+    
+    <SELENIUM-SERVER version="1.1" name="SELENIUM-SERVER-EXAMPLE-003" port="4546" operation="stop" />
+        
+
+</TEST>
+

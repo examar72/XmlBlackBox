@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="XmlBlackBox functional test" default="jarDistribution" basedir=".">
+  <taskdef classname="net.bluecow.googlecode.ant.GoogleCodeUploadTask" classpath="ant-googlecode-0.0.2.jar" name="gcupload"/>
+  <target name ="jarDistribution" description="Create a Jar distribution for Xmlblackbox prj">
+    <jar jarfile="template-project-${ft.version}.zip" excludes="target/**,log/**" basedir="template-project"/>
+    <delete>
+	    <fileset dir="." includes="**/*version}.zip"/>
+	</delete>
+  </target>
+  
+  <target name ="uploadFunctionalTestToGoogle" description="Upload file of template project on google code server">
+	  <gcupload 
+			  username="${xbb.username}" 
+			  password="${xbb.password}" 
+			  projectname="xmlblackbox" 
+			  filename="template-project-${ft.version}.zip" 
+			  targetfilename="template-project-${ft.version}.zip"
+			  summary="Template project to create test cases using XmlBlackBox (includes xmlblackbox last version jar)"
+			  labels="Featured" />
+  </target>
+
+  <target name ="uploadXmlBlackBoxToGoogle" description="Upload XmlBlackBox jar file on google code server">
+	  <gcupload 
+			  username="${xbb.username}" 
+			  password="${xbb.password}" 
+			  projectname="xmlblackbox" 
+			  filename="xmlBlackbox/target/xmlblackbox-${xbb.version}.jar" 
+			  targetfilename="xmlBlackbox/target/xmlblackbox-${xbb.version}____.jar"
+			  summary="XmlBlackBox implementation"
+			  labels="Featured" />
+  </target>
+  
+</project>
+
+
+
